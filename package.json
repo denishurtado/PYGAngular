@@ -1,0 +1,24 @@
+{
+  "name": "stonkeskywar",
+  "version": "0.0.1",
+  "description": "A rebel leader from Gerrard V",
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "Denis Hurtado Prada",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "browserify": "^11.0.1",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-open": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0"
+  }
+}

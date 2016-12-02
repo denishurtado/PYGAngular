@@ -1,0 +1,44 @@
+<section class="talentPage">
+
+<div class="search">
+		<h1>Talent Directory</h1>
+		<label>Search:</label>
+		<input ng-model="talentfilter" placeholder="Search for talent" autofocus>
+
+		<label>by:
+			<select ng-model="talentOrder"> 
+				<option value="name">Name</option>
+				<option value="team">Team</option>
+				<option value="">None</option>
+			</select>
+		</label>
+
+		<label class="formGroup">
+			<input type="radio" ng-model="direction" name="direction" checked>
+			Newest
+		</label>
+
+		<label class="formGroup">
+			<input type="radio" ng-model="direction" name="direction" value="reverse">
+			Oldest
+		</label>
+
+	</div>
+	<div>
+		<ul>
+			<li ng-repeat="item in talents | filter: talentfilter | orderBy:talentOrder:direction">
+				<a href="#/details/{{talents.indexOf(item)}}">go to details</a>
+				<img ng-src="images/{{item.photo}}_th.jpg" alt="Photo of {{item.name}}">
+				<div>
+					<h1>{{item.name | uppercase}}</h1>
+					<div>{{item.title}}</div>
+					<div>{{item.team}}</div>
+					<div>{{item.facebook}}</div>
+					<div>{{item.linkedin}}</div>
+					<div>{{item.twitter}}</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+</section>

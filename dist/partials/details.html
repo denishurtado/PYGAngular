@@ -1,0 +1,15 @@
+<section class="talentInfo">
+	<div class="talent" ng-model="talents">
+		<a href="#/details/{{prevItem}}">&lt;</a>
+		<a href="#/details/{{nextItem}}">&gt;</a>
+		<h1>{{talents[whichItem].name}}</h1>
+		<div>{{talents[whichItem].title}}</div>
+		<div>{{talents[whichItem].team}}</div>
+		<div>{{talents[whichItem].facebook}}</div>
+		<div>{{talents[whichItem].linkedin}}</div>
+		<div>{{talents[whichItem].twitter}}</div>	
+		<img ng-src="images/{{talents[whichItem].photo}}_th.jpg" alt="Photo of {{talents[whichItem].name}}">
+	</div>
+	
+	<a href="/#list">&laquo; Back to search:</a>
+</section>
