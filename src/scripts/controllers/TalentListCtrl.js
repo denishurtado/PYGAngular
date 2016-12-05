@@ -12,7 +12,9 @@ $http.get('json/data.json').success(function(response){
 			response[i].photo = "default";
 		}
 	}//end for
- 
+ 	$scope.gotoTeam = function(){
+ 		console.log("btn working");
+ 	};
 });
 };
 
