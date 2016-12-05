@@ -1,4 +1,17 @@
-'use strict';
+// (function(){
+// 'use strict';
+// console.log("team list working");
 
-// var dir = console.log("testing directives");
-// module.exports = dir;
+// // var myHeaderDirective = function() {
+
+// // 	angular.module('headerDirective', [])
+// // 	.directive('myHeader', function(){
+// // 		return {
+// // 			template: '<div class="header">Header test</div>'
+// // 		};
+// // 	});
+// // };
+
+// module.exports = myHeaderDirective;
+
+// }());

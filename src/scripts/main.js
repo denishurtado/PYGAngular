@@ -10,13 +10,12 @@ var TalentList = require('./controllers/TalentListCtrl');
 var DetailTalent = require('./controllers/DetailsCtrl');
 var TeamList = require('./controllers/TeamCtrl');
 
-var talentsService = require('./services/TalentService');
-//services declaration
-var serv = require('./services/service');
+
+//Services declaration
 var TalentServ = require('./services/TalentService');
 
-//directives declaration
-var dir = require('./directives/module.js');
+//Directives declaration
+
 
 
 var myApp = angular.module('myApp', [

@@ -32918,11 +32918,6 @@ module.exports = TeamCtrl;
 
 }());
 },{}],8:[function(require,module,exports){
-'use strict';
-
-// var dir = console.log("testing directives");
-// module.exports = dir;
-},{}],9:[function(require,module,exports){
 (function(){
 'use strict';
 
@@ -32935,13 +32930,12 @@ var TalentList = require('./controllers/TalentListCtrl');
 var DetailTalent = require('./controllers/DetailsCtrl');
 var TeamList = require('./controllers/TeamCtrl');
 
-var talentsService = require('./services/TalentService');
-//services declaration
-var serv = require('./services/service');
+
+//Services declaration
 var TalentServ = require('./services/TalentService');
 
-//directives declaration
-var dir = require('./directives/module.js');
+//Directives declaration
+
 
 
 var myApp = angular.module('myApp', [
@@ -32977,7 +32971,7 @@ talentControllers.controller('TeamCtrl', ['$scope', '$http', '$routeParams', Tea
 
 
 }());
-},{"./controllers/DetailsCtrl":5,"./controllers/TalentListCtrl":6,"./controllers/TeamCtrl":7,"./directives/module.js":8,"./services/TalentService":10,"./services/service":11,"angular":4,"angular-route":2}],10:[function(require,module,exports){
+},{"./controllers/DetailsCtrl":5,"./controllers/TalentListCtrl":6,"./controllers/TeamCtrl":7,"./services/TalentService":9,"angular":4,"angular-route":2}],9:[function(require,module,exports){
 'use strict';
 console.log("hello from angular service");
 
@@ -32993,8 +32987,4 @@ console.log("hello from angular service");
 // module.exports = talentsService;
 
 
-},{}],11:[function(require,module,exports){
-var s = console.log("testing services");
-
-module.exports = s;
-},{}]},{},[9]);
+},{}]},{},[8]);
