@@ -11,10 +11,9 @@ $http.get('json/data.json').success(function(response){
 		if(response[i].photo === ""){
 			response[i].photo = "default";
 		}
+		
 	}//end for
- 	$scope.gotoTeam = function(){
- 		console.log("btn working");
- 	};
+
 });
 };
 

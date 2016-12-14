@@ -32897,10 +32897,9 @@ $http.get('json/data.json').success(function(response){
 		if(response[i].photo === ""){
 			response[i].photo = "default";
 		}
+		
 	}//end for
- 	$scope.gotoTeam = function(){
- 		console.log("btn working");
- 	};
+
 });
 };
 
@@ -32967,7 +32966,9 @@ module.exports = TeamCtrl;
 
 var myFooterDirective = function() {
 	return {
-		template: "<div class='footer'>Footer goes Here!</div>"
+		restrict: 'E',
+		scope: false,
+		templateUrl: 'partials/widgets/footer.html'
 	};
 };
 
@@ -32981,7 +32982,9 @@ module.exports = myFooterDirective;
 
 var myHeaderDirective = function() {
 	return {
-		template: "<div class='header'>Header goes Here!</div>"
+		restrict: 'E',
+		scope: false,
+		templateUrl: 'partials/widgets/header.html'
 	};
 };
 
@@ -32989,6 +32992,21 @@ module.exports = myHeaderDirective;
 
 }());
 },{}],11:[function(require,module,exports){
+(function(){
+'use strict';
+
+var myIntroDirective = function() {
+	return {
+		restrict: 'E',
+		scope: false,
+		templateUrl: 'partials/widgets/intro.html'
+	};
+};
+
+module.exports = myIntroDirective;
+
+}());
+},{}],12:[function(require,module,exports){
 (function(){
 'use strict';
 
@@ -33008,6 +33026,7 @@ var TalentServ = require('./services/TalentService');
 //Directives declaration
 var Header = require('./directives/dirHeader');
 var Footer = require('./directives/dirFooter');
+var Intro = require('./directives/dirIntro');
 
 //Main module
 var myApp = angular.module('myApp', [
@@ -33051,9 +33070,10 @@ appHandler.controller('TeamDetailsCtrl', ['$scope', '$http', '$routeParams', Det
 // Directives
 appHandler.directive("appHeader", Header);
 appHandler.directive("appFooter", Footer);
+appHandler.directive("appIntro", Intro);
 
 }());
-},{"./controllers/DetailsCtrl":5,"./controllers/TalentListCtrl":6,"./controllers/TeamCtrl":7,"./controllers/TeamDetailsCtrl":8,"./directives/dirFooter":9,"./directives/dirHeader":10,"./services/TalentService":12,"angular":4,"angular-route":2}],12:[function(require,module,exports){
+},{"./controllers/DetailsCtrl":5,"./controllers/TalentListCtrl":6,"./controllers/TeamCtrl":7,"./controllers/TeamDetailsCtrl":8,"./directives/dirFooter":9,"./directives/dirHeader":10,"./directives/dirIntro":11,"./services/TalentService":13,"angular":4,"angular-route":2}],13:[function(require,module,exports){
 'use strict';
 console.log("hello from angular service");
 
@@ -33069,4 +33089,4 @@ console.log("hello from angular service");
 // module.exports = talentsService;
 
 
-},{}]},{},[11]);
+},{}]},{},[12]);

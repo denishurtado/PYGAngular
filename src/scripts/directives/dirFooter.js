@@ -3,7 +3,9 @@
 
 var myFooterDirective = function() {
 	return {
-		template: "<div class='footer'>Footer goes Here!</div>"
+		restrict: 'E',
+		scope: false,
+		templateUrl: 'partials/widgets/footer.html'
 	};
 };
 

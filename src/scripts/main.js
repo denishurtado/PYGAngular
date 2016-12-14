@@ -17,6 +17,7 @@ var TalentServ = require('./services/TalentService');
 //Directives declaration
 var Header = require('./directives/dirHeader');
 var Footer = require('./directives/dirFooter');
+var Intro = require('./directives/dirIntro');
 
 //Main module
 var myApp = angular.module('myApp', [
@@ -60,5 +61,6 @@ appHandler.controller('TeamDetailsCtrl', ['$scope', '$http', '$routeParams', Det
 // Directives
 appHandler.directive("appHeader", Header);
 appHandler.directive("appFooter", Footer);
+appHandler.directive("appIntro", Intro);
 
 }());

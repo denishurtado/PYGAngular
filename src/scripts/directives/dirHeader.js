@@ -4,7 +4,9 @@
 
 var myHeaderDirective = function() {
 	return {
-		template: "<div class='header'>Header goes Here!</div>"
+		restrict: 'E',
+		scope: false,
+		templateUrl: 'partials/widgets/header.html'
 	};
 };
 
