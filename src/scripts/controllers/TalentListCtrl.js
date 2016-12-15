@@ -11,8 +11,9 @@ $http.get('json/data.json').success(function(response){
 		if(response[i].photo === ""){
 			response[i].photo = "default";
 		}
+		
 	}//end for
- 
+
 });
 };
 

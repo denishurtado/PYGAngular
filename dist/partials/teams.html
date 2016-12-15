@@ -1,1 +1,9 @@
-<div>Teams go here</div>
+<section class="teamList">
+	<div class="team" ng-model="teamList">
+		<li ng-repeat="item in teamList">
+			<h1>team:{{item.name}}</h1>
+			<img ng-src="images/{{item.photo}}_th.jpg" alt="Photo of {{item.name}}">
+			<a href="#/teamDetails/{{teamList.indexOf(item)}}"> details</a>
+		</li>
+	</div>
+</section>

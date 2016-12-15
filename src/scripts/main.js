@@ -9,19 +9,20 @@ var ngRoute = require('angular-route');
 var TalentList = require('./controllers/TalentListCtrl');
 var DetailTalent = require('./controllers/DetailsCtrl');
 var TeamList = require('./controllers/TeamCtrl');
+var DetailTeam = require('./controllers/TeamDetailsCtrl');
 
-var talentsService = require('./services/TalentService');
-//services declaration
-var serv = require('./services/service');
+//Services declaration
 var TalentServ = require('./services/TalentService');
 
-//directives declaration
-var dir = require('./directives/module.js');
+//Directives declaration
+var Header = require('./directives/dirHeader');
+var Footer = require('./directives/dirFooter');
+var Intro = require('./directives/dirIntro');
 
-
+//Main module
 var myApp = angular.module('myApp', [
 	'ngRoute',
-	'talentControllers'
+	'appHandler'
 ]);
 
 //configure partials
@@ -40,15 +41,26 @@ myApp.config(['$routeProvider', function($routeProvider){
 		templateUrl: 'partials/teams.html',
 		controller: 'TeamCtrl'
 	}).
+	when('/teamDetails/:itemId', {
+		templateUrl: 'partials/teamDetails.html',
+		controller: 'TeamDetailsCtrl'
+	}).
 	otherwise({redirectTo: '/list'});
 }]);
 
 
-var talentControllers = angular.module('talentControllers', []);
 
-talentControllers.controller('TalentListCtrl', ['$scope', '$http', TalentList]);
-talentControllers.controller('DetailsCtrl', ['$scope', '$http', '$routeParams', DetailTalent]);
-talentControllers.controller('TeamCtrl', ['$scope', '$http', '$routeParams', TeamList]);
+var appHandler = angular.module('appHandler', []);
 
+// Controllers
+appHandler.controller('TalentListCtrl', ['$scope', '$http', TalentList]);
+appHandler.controller('DetailsCtrl', ['$scope', '$http', '$routeParams', DetailTalent]);
+appHandler.controller('TeamCtrl', ['$scope', '$http', '$routeParams', TeamList]);
+appHandler.controller('TeamDetailsCtrl', ['$scope', '$http', '$routeParams', DetailTeam]);
+
+// Directives
+appHandler.directive("appHeader", Header);
+appHandler.directive("appFooter", Footer);
+appHandler.directive("appIntro", Intro);
 
 }());

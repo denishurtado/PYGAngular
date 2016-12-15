@@ -14,14 +14,14 @@ $http.get('json/data.json').success(function(response){
   }//end for
 
  if($routeParams.itemId > 0 ){
-  $scope.prevItem = Number($routeParams.itemId) -1;
+  $scope.prevItem = Number($routeParams.itemId) - 1;
 
  } else {
-  $scope.prevItem = $scope.talents.length -1;
+  $scope.prevItem = $scope.talents.length - 1;
   }
 
-  if($routeParams.itemId < $scope.talents.length-1){
-  $scope.nextItem = Number($routeParams.itemId)+1;
+  if($routeParams.itemId < $scope.talents.length - 1){
+  $scope.nextItem = Number($routeParams.itemId) + 1;
  } else {
   $scope.nextItem = 0;
  }

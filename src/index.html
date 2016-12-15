@@ -8,9 +8,17 @@
 
 <body>
 
-<div class="header"></div>
+<div class="container">
 
-<div ng-view></div>
+	<app-intro></app-intro>
+	
+	<app-header></app-header>	
+
+	<div ng-view></div>
+
+	<app-Footer></app-Footer>
+
+</div>
 
 <script type="text/javascript" src="scripts/bundle.js"></script>
 </body>

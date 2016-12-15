@@ -32863,14 +32863,14 @@ $http.get('json/data.json').success(function(response){
   }//end for
 
  if($routeParams.itemId > 0 ){
-  $scope.prevItem = Number($routeParams.itemId) -1;
+  $scope.prevItem = Number($routeParams.itemId) - 1;
 
  } else {
-  $scope.prevItem = $scope.talents.length -1;
+  $scope.prevItem = $scope.talents.length - 1;
   }
 
-  if($routeParams.itemId < $scope.talents.length-1){
-  $scope.nextItem = Number($routeParams.itemId)+1;
+  if($routeParams.itemId < $scope.talents.length - 1){
+  $scope.nextItem = Number($routeParams.itemId) + 1;
  } else {
   $scope.nextItem = 0;
  }
@@ -32897,8 +32897,9 @@ $http.get('json/data.json').success(function(response){
 		if(response[i].photo === ""){
 			response[i].photo = "default";
 		}
+		
 	}//end for
- 
+
 });
 };
 
@@ -32911,18 +32912,101 @@ module.exports = TalentListCtrl;
 console.log("team list working");
 
 var TeamCtrl = function($scope, $http, $routeParams) {
-
+	$http.get('json/teams.json').success(function(response){
+		$scope.teamList = response;	  
+		for (var i = 0; i < response.length; i++) {
+			console.log('teams:' + response[i].name);
+		}//end for 
+	});//end http
 };
 
 module.exports = TeamCtrl;
 
 }());
 },{}],8:[function(require,module,exports){
+(function() {
+  'use strict';
+
+  var TeamDetailsCtrl = function($scope, $http, $routeParams) {
+
+    $http.get('json/teams.json').success(function(response) {
+      $scope.teams = response;
+
+      $scope.whichItem = $routeParams.itemId;
+      for (var i = 0; i < response.length; i++) {
+        if (response[i].photo === "") {
+          response[i].photo = "default";
+        }
+      } //end for
+
+      if ($routeParams.itemId > 0) {
+        $scope.prevItem = Number($routeParams.itemId) - 1;
+
+      } else {
+        $scope.prevItem = $scope.teams.length - 1;
+      }
+
+      if ($routeParams.itemId < $scope.teams.length - 1) {
+        $scope.nextItem = Number($routeParams.itemId) + 1;
+      } else {
+        $scope.nextItem = 0;
+      }
+
+    });
+
+  };
+
+  module.exports = TeamDetailsCtrl;
+
+}());
+
+},{}],9:[function(require,module,exports){
+(function(){
 'use strict';
 
-// var dir = console.log("testing directives");
-// module.exports = dir;
-},{}],9:[function(require,module,exports){
+var myFooterDirective = function() {
+	return {
+		restrict: 'E',
+		scope: false,
+		templateUrl: 'partials/widgets/footer.html'
+	};
+};
+
+module.exports = myFooterDirective;
+
+}());
+},{}],10:[function(require,module,exports){
+(function(){
+'use strict';
+// console.log("directive working");
+
+var myHeaderDirective = function() {
+	return {
+		restrict: 'E',
+		scope: false,
+		templateUrl: 'partials/widgets/header.html'
+	};
+};
+
+module.exports = myHeaderDirective;
+
+}());
+},{}],11:[function(require,module,exports){
+(function(){
+'use strict';
+
+var myIntroDirective = function() {
+	return {
+		restrict: 'E',
+		scope: false,
+		templateUrl: 'partials/widgets/intro.html'
+	};
+};
+
+module.exports = myIntroDirective;
+
+}());
+},{}],12:[function(require,module,exports){
 (function(){
 'use strict';
 
@@ -32934,19 +33018,20 @@ var ngRoute = require('angular-route');
 var TalentList = require('./controllers/TalentListCtrl');
 var DetailTalent = require('./controllers/DetailsCtrl');
 var TeamList = require('./controllers/TeamCtrl');
+var DetailTeam = require('./controllers/TeamDetailsCtrl');
 
-var talentsService = require('./services/TalentService');
-//services declaration
-var serv = require('./services/service');
+//Services declaration
 var TalentServ = require('./services/TalentService');
 
-//directives declaration
-var dir = require('./directives/module.js');
+//Directives declaration
+var Header = require('./directives/dirHeader');
+var Footer = require('./directives/dirFooter');
+var Intro = require('./directives/dirIntro');
 
-
+//Main module
 var myApp = angular.module('myApp', [
 	'ngRoute',
-	'talentControllers'
+	'appHandler'
 ]);
 
 //configure partials
@@ -32965,19 +33050,30 @@ myApp.config(['$routeProvider', function($routeProvider){
 		templateUrl: 'partials/teams.html',
 		controller: 'TeamCtrl'
 	}).
+	when('/teamDetails/:itemId', {
+		templateUrl: 'partials/teamDetails.html',
+		controller: 'TeamDetailsCtrl'
+	}).
 	otherwise({redirectTo: '/list'});
 }]);
 
 
-var talentControllers = angular.module('talentControllers', []);
 
-talentControllers.controller('TalentListCtrl', ['$scope', '$http', TalentList]);
-talentControllers.controller('DetailsCtrl', ['$scope', '$http', '$routeParams', DetailTalent]);
-talentControllers.controller('TeamCtrl', ['$scope', '$http', '$routeParams', TeamList]);
+var appHandler = angular.module('appHandler', []);
 
+// Controllers
+appHandler.controller('TalentListCtrl', ['$scope', '$http', TalentList]);
+appHandler.controller('DetailsCtrl', ['$scope', '$http', '$routeParams', DetailTalent]);
+appHandler.controller('TeamCtrl', ['$scope', '$http', '$routeParams', TeamList]);
+appHandler.controller('TeamDetailsCtrl', ['$scope', '$http', '$routeParams', DetailTeam]);
+
+// Directives
+appHandler.directive("appHeader", Header);
+appHandler.directive("appFooter", Footer);
+appHandler.directive("appIntro", Intro);
 
 }());
-},{"./controllers/DetailsCtrl":5,"./controllers/TalentListCtrl":6,"./controllers/TeamCtrl":7,"./directives/module.js":8,"./services/TalentService":10,"./services/service":11,"angular":4,"angular-route":2}],10:[function(require,module,exports){
+},{"./controllers/DetailsCtrl":5,"./controllers/TalentListCtrl":6,"./controllers/TeamCtrl":7,"./controllers/TeamDetailsCtrl":8,"./directives/dirFooter":9,"./directives/dirHeader":10,"./directives/dirIntro":11,"./services/TalentService":13,"angular":4,"angular-route":2}],13:[function(require,module,exports){
 'use strict';
 console.log("hello from angular service");
 
@@ -32993,8 +33089,4 @@ console.log("hello from angular service");
 // module.exports = talentsService;
 
 
-},{}],11:[function(require,module,exports){
-var s = console.log("testing services");
-
-module.exports = s;
-},{}]},{},[9]);
+},{}]},{},[12]);
