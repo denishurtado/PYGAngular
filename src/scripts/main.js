@@ -3,13 +3,14 @@
 
 var angular = require('angular'); 
 var ngRoute = require('angular-route');
-
+var gsap = require('gsap');
 
 //controllers declaration
 var TalentList = require('./controllers/TalentListCtrl');
 var DetailTalent = require('./controllers/DetailsCtrl');
 var TeamList = require('./controllers/TeamCtrl');
 var DetailTeam = require('./controllers/TeamDetailsCtrl');
+var IntroCtrl = require('./controllers/IntroCtrl');
 
 //Services declaration
 var TalentServ = require('./services/TalentService');
@@ -18,6 +19,8 @@ var TalentServ = require('./services/TalentService');
 var Header = require('./directives/dirHeader');
 var Footer = require('./directives/dirFooter');
 var Intro = require('./directives/dirIntro');
+
+
 
 //Main module
 var myApp = angular.module('myApp', [
@@ -57,10 +60,12 @@ appHandler.controller('TalentListCtrl', ['$scope', '$http', TalentList]);
 appHandler.controller('DetailsCtrl', ['$scope', '$http', '$routeParams', DetailTalent]);
 appHandler.controller('TeamCtrl', ['$scope', '$http', '$routeParams', TeamList]);
 appHandler.controller('TeamDetailsCtrl', ['$scope', '$http', '$routeParams', DetailTeam]);
+appHandler.controller('IntroCtrl', ['$scope', IntroCtrl]);
 
 // Directives
 appHandler.directive("appHeader", Header);
 appHandler.directive("appFooter", Footer);
 appHandler.directive("appIntro", Intro);
+
 
 }());

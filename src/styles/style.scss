@@ -53,55 +53,94 @@ table {
 	width:100%;
 	height:100%;
 	background-color:white;
+	overflow: hidden;
 
 	.header{
-		width:100%;
-		height:185px;
-		background-color:white;
+		background-color: white;
+	    height: 100px;
+	    overflow: hidden;
+	    width: 100%;
 
-
-		.logotype > img {
-		    left: 44px;
-		    position: absolute;
-		    top: 76px;
+	    .logotype {
+		    float: left;
+		    width: 23%;
 		}
 
-		.line {
-		    background-color: #fba72c;
-		    height: 6px;
-		    left: 332px;
-		    position: absolute;
-		    top: 130px;
-		    width: calc(100% - 335px);
+		#right-bloq {
+		    float: left;
+		    height: 119px;
+		    width: 77%;
+
+		    .line {
+			    background-color: #fba72c;
+			    height: 6px;
+			    left: 296px;
+			    position: absolute;
+			    top: 57px;
+			    width: calc(100% - 300px);
+			}
 		}
+	
 	}
 
 	.content{
 
+		float: left;
+    	width: 100%;
+
 		.title {
-		    height: 194px;
-		    top: 10px;
+		    height: 165px;
+		    padding-top: 22px;
 		    width: 100%;
 		    text-align: center;
-		}
-
-		.title img{
-			max-width:696px;
-			width:100%;
-			height:auto;
+		    overflow:hidden;
+		     img{
+				max-width:696px;
+				width:100%;
+				height:auto;
+			}
 		}
 
 		.mountain {
-		    float: right;
+		     float: left;
+    		 width: 100%;
+
+    		 img {
+			     float: right;
+				 position: relative;
+				 top: -33px;
+			}
 		}
+
+		.btn_intro {
+		    height: 45px;
+		    width: 100%;
+
+			    #goToApp {
+			    background: purple none repeat scroll 0 0;
+			    height: 45px;
+			    line-height: 45px;
+			    text-align: center;
+			    width: 173px;
+			    color:white;
+			    cursor:pointer;
+			    margin:0 auto;
+			}
+
+			:hover{
+				background: black;
+			}
+		}
+	
 	}
 
 	.footer{
 			background: #fba72c none repeat scroll 0 0;
 		    bottom: 0;
-		    height: 100px;
+		    height: 55px;
 		    position: fixed;
 		    width: 100%;
+		    float:left;
 	}
 }
 

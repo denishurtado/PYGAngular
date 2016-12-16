@@ -48,39 +48,68 @@ table {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: white; }
+  background-color: white;
+  overflow: hidden; }
   #intro .header {
-    width: 100%;
-    height: 195px;
-    background-color: white; }
-    #intro .header .logotype > img {
-      left: 44px;
-      position: absolute;
-      top: 76px; }
-    #intro .header .line {
-      background-color: #fba72c;
-      height: 6px;
-      left: 332px;
-      position: absolute;
-      top: 130px;
-      width: calc(100% - 335px); }
-  #intro .content .title {
-    height: 194px;
-    top: 10px;
-    width: 100%;
-    text-align: center; }
-  #intro .content .title img {
-    max-width: 696px;
-    width: 100%;
-    height: auto; }
-  #intro .content .mountain {
-    float: right; }
+    background-color: white;
+    height: 100px;
+    overflow: hidden;
+    width: 100%; }
+    #intro .header .logotype {
+      float: left;
+      width: 23%; }
+    #intro .header #right-bloq {
+      float: left;
+      height: 119px;
+      width: 77%; }
+      #intro .header #right-bloq .line {
+        background-color: #fba72c;
+        height: 6px;
+        left: 296px;
+        position: absolute;
+        top: 57px;
+        width: calc(100% - 300px); }
+  #intro .content {
+    float: left;
+    width: 100%; }
+    #intro .content .title {
+      height: 165px;
+      padding-top: 22px;
+      width: 100%;
+      text-align: center;
+      overflow: hidden; }
+      #intro .content .title img {
+        max-width: 696px;
+        width: 100%;
+        height: auto; }
+    #intro .content .mountain {
+      float: left;
+      width: 100%; }
+      #intro .content .mountain img {
+        float: right;
+        position: relative;
+        top: -33px; }
+    #intro .content .btn_intro {
+      height: 45px;
+      width: 100%; }
+      #intro .content .btn_intro #goToApp {
+        background: purple none repeat scroll 0 0;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        width: 173px;
+        color: white;
+        cursor: pointer;
+        margin: 0 auto; }
+      #intro .content .btn_intro :hover {
+        background: black; }
   #intro .footer {
     background: #fba72c none repeat scroll 0 0;
     bottom: 0;
-    height: 100px;
+    height: 55px;
     position: fixed;
-    width: 100%; }
+    width: 100%;
+    float: left; }
 
 body {
   border-color: #3bbfce;
