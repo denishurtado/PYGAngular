@@ -16,6 +16,8 @@
   },
   "globals": {
     "jQuery": true,
-    "$": true
+    "$": true,
+    "TweenMax": true,
+    "TimelineMax":true
   }
 }

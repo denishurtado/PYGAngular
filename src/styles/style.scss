@@ -64,6 +64,7 @@ table {
 	    .logotype {
 		    float: left;
 		    width: 23%;
+		    opacity:0;
 		}
 
 		#right-bloq {
@@ -77,7 +78,7 @@ table {
 			    left: 296px;
 			    position: absolute;
 			    top: 57px;
-			    width: calc(100% - 300px);
+			    width: 0;
 			}
 		}
 	
@@ -108,7 +109,8 @@ table {
     		 img {
 			     float: right;
 				 position: relative;
-				 top: -33px;
+				 top: 230px;
+				 opacity:0;
 			}
 		}
 
@@ -137,11 +139,17 @@ table {
 	.footer{
 			background: #fba72c none repeat scroll 0 0;
 		    bottom: 0;
-		    height: 55px;
+		    height: 0px;
 		    position: fixed;
 		    width: 100%;
-		    float:left;
+   
 	}
+
+	 .isotype{
+			    position: relative;
+			    top: -182px;
+			    left: 1126px;
+			}
 }
 
 $primary-color: #3bbfce;
@@ -159,7 +167,7 @@ body{
 }
 
 .footer{
-	width:100%;
+	width:0;
 	height:50px;
 	background-color:red;
 }
