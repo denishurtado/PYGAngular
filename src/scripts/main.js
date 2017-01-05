@@ -11,6 +11,7 @@ var DetailTalent = require('./controllers/DetailsCtrl');
 var TeamList = require('./controllers/TeamCtrl');
 var DetailTeam = require('./controllers/TeamDetailsCtrl');
 var IntroCtrl = require('./controllers/IntroCtrl');
+var FormCtrl = require('./controllers/FormCtrl');
 
 //Services declaration
 var TalentServ = require('./services/TalentService');
@@ -48,7 +49,15 @@ myApp.config(['$routeProvider', function($routeProvider){
 		templateUrl: 'partials/teamDetails.html',
 		controller: 'TeamDetailsCtrl'
 	}).
-	otherwise({redirectTo: '/list'});
+	when('/index', {
+		templateUrl: 'partials/widgets/intro.html',
+		controller: 'IntroCtrl'
+	}).
+	when('/form', {
+		templateUrl: 'partials/widgets/form.html',
+		controller: 'FormCtrl'
+	}).
+	otherwise({redirectTo: '/index'});
 }]);
 
 
@@ -61,6 +70,7 @@ appHandler.controller('DetailsCtrl', ['$scope', '$http', '$routeParams', DetailT
 appHandler.controller('TeamCtrl', ['$scope', '$http', '$routeParams', TeamList]);
 appHandler.controller('TeamDetailsCtrl', ['$scope', '$http', '$routeParams', DetailTeam]);
 appHandler.controller('IntroCtrl', ['$scope', IntroCtrl]);
+appHandler.controller('FormCtrl', ['$scope', '$http', FormCtrl]);
 
 // Directives
 appHandler.directive("appHeader", Header);

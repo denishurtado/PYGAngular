@@ -1,0 +1,11 @@
+<div>form working</div>
+
+<input type="text" id="txt_message" ng-model="message"></input>
+<button id="post">Post</button>
+
+<ul>
+	<li ng-repeat="item in messages">
+		<div>{{item._id}}</div>
+		<div>{{item.msg}}</div>
+	</li>
+</ul>

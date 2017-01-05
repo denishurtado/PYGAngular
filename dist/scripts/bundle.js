@@ -40690,6 +40690,38 @@ module.exports = DetailsCtrl;
 (function(){
 'use strict';
 
+console.log("form working");
+
+var FormCtrl = function($scope, $http){
+
+	//get
+	function getMessage(){
+
+		$http.get('http://localhost:5000/api/message').then(function(result){
+			console.log(result.data);
+			$scope.messages = result.data;	 
+		});
+	}
+	getMessage();
+
+	//post
+	function postMessage(){
+		$http.post('http://localhost:5000/api/message', {msg: $scope.message});
+		console.log("post");
+		getMessage();
+	}
+	document.getElementById("post").addEventListener("click", postMessage);
+
+	
+};
+
+module.exports = FormCtrl;
+
+}());
+},{}],8:[function(require,module,exports){
+(function(){
+'use strict';
+
 var gsap = require('gsap');
 
 var IntroCtrl = function($scope){
@@ -40697,21 +40729,20 @@ var IntroCtrl = function($scope){
 	var x = document.getElementById('goToApp');
 	var line = document.getElementById('line');
 	var logo = document.getElementById('logo');
-	var iso = document.getElementById('isotype');
+	
 	var footer = document.getElementById('footer');
 	var mountain = document.getElementById('mountain');
 
 	var tl = new TimelineMax();
 	tl.to(logo, 0.5, {opacity: 1})
 	.to(line, 1, {width: "100%"})
-	.to(iso, 1, {left: -88}, '-=1')
-	.to(mountain, 1, {top: -33, opacity: 1}, '-=1')
+	.to(mountain, 1, {top: -150, opacity: 1}, '-=1')
 	.to(footer, 1, {height: 55}, '-=1');
 	
-	//TweenMax.to(iso, 4, {rotation:360, repeat:-1, transformOrigin:"0% 0%", ease:Linear.easeNone})	//hide intro
 	
 	function hideIntro(){
 		document.getElementById('intro').style.display = "none";
+		console.log("click intro");
 	}
 	x.addEventListener('click', hideIntro);
 };
@@ -40719,7 +40750,7 @@ var IntroCtrl = function($scope){
 module.exports = IntroCtrl;
 
 }());
-},{"gsap":5}],8:[function(require,module,exports){
+},{"gsap":5}],9:[function(require,module,exports){
 (function(){
   
 'use strict';
@@ -40742,7 +40773,7 @@ $http.get('json/data.json').success(function(response){
 module.exports = TalentListCtrl;
 
 }());
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function(){
 'use strict';
 console.log("team list working");
@@ -40759,7 +40790,7 @@ var TeamCtrl = function($scope, $http, $routeParams) {
 module.exports = TeamCtrl;
 
 }());
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -40796,7 +40827,7 @@ module.exports = TeamCtrl;
 
 }());
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 (function(){
 'use strict';
 
@@ -40811,7 +40842,7 @@ var myFooterDirective = function() {
 module.exports = myFooterDirective;
 
 }());
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 (function(){
 'use strict';
 // console.log("directive working");
@@ -40827,7 +40858,7 @@ var myHeaderDirective = function() {
 module.exports = myHeaderDirective;
 
 }());
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 (function(){
 'use strict';
 
@@ -40843,7 +40874,7 @@ var myIntroDirective = function() {
 module.exports = myIntroDirective;
 
 }());
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function(){
 'use strict';
 
@@ -40857,6 +40888,7 @@ var DetailTalent = require('./controllers/DetailsCtrl');
 var TeamList = require('./controllers/TeamCtrl');
 var DetailTeam = require('./controllers/TeamDetailsCtrl');
 var IntroCtrl = require('./controllers/IntroCtrl');
+var FormCtrl = require('./controllers/FormCtrl');
 
 //Services declaration
 var TalentServ = require('./services/TalentService');
@@ -40894,7 +40926,15 @@ myApp.config(['$routeProvider', function($routeProvider){
 		templateUrl: 'partials/teamDetails.html',
 		controller: 'TeamDetailsCtrl'
 	}).
-	otherwise({redirectTo: '/list'});
+	when('/index', {
+		templateUrl: 'partials/widgets/intro.html',
+		controller: 'IntroCtrl'
+	}).
+	when('/form', {
+		templateUrl: 'partials/widgets/form.html',
+		controller: 'FormCtrl'
+	}).
+	otherwise({redirectTo: '/index'});
 }]);
 
 
@@ -40907,6 +40947,7 @@ appHandler.controller('DetailsCtrl', ['$scope', '$http', '$routeParams', DetailT
 appHandler.controller('TeamCtrl', ['$scope', '$http', '$routeParams', TeamList]);
 appHandler.controller('TeamDetailsCtrl', ['$scope', '$http', '$routeParams', DetailTeam]);
 appHandler.controller('IntroCtrl', ['$scope', IntroCtrl]);
+appHandler.controller('FormCtrl', ['$scope', '$http', FormCtrl]);
 
 // Directives
 appHandler.directive("appHeader", Header);
@@ -40915,7 +40956,7 @@ appHandler.directive("appIntro", Intro);
 
 
 }());
-},{"./controllers/DetailsCtrl":6,"./controllers/IntroCtrl":7,"./controllers/TalentListCtrl":8,"./controllers/TeamCtrl":9,"./controllers/TeamDetailsCtrl":10,"./directives/dirFooter":11,"./directives/dirHeader":12,"./directives/dirIntro":13,"./services/TalentService":15,"angular":4,"angular-route":2,"gsap":5}],15:[function(require,module,exports){
+},{"./controllers/DetailsCtrl":6,"./controllers/FormCtrl":7,"./controllers/IntroCtrl":8,"./controllers/TalentListCtrl":9,"./controllers/TeamCtrl":10,"./controllers/TeamDetailsCtrl":11,"./directives/dirFooter":12,"./directives/dirHeader":13,"./directives/dirIntro":14,"./services/TalentService":16,"angular":4,"angular-route":2,"gsap":5}],16:[function(require,module,exports){
 'use strict';
 console.log("hello from angular service");
 
@@ -40931,4 +40972,4 @@ console.log("hello from angular service");
 // module.exports = talentsService;
 
 
-},{}]},{},[14]);
+},{}]},{},[15]);
