@@ -1,11 +1,33 @@
-<div>form working</div>
+<div>Write a message</div>
 
 <input type="text" id="txt_message" ng-model="message"></input>
 <button id="post">Post</button>
-
-<ul>
-	<li ng-repeat="item in messages">
-		<div>{{item._id}}</div>
-		<div>{{item.msg}}</div>
+<br>
+<br>
+<ul class="message-form">
+	<li class="message" ng-repeat="item in messages">
+		<p>{{item._id}}</p>
+		<p>{{item.msg}}</p>
+		<br>
 	</li>
 </ul>
+<br>
+<label>message by id</label>
+
+<input type="text" id="txt_messageById" ng-model="messageById"></input>
+<button id="getById">Get Message By Id</button>
+<div ng-repeat="itemById in result">
+	<br>mensaje by id:
+	{{itemById.msg}}
+</div>
+
+<br>
+<br>
+<div>Delete a message by Id</div>
+<input type="text" id="txt_messageId" ng-model="messageId"></input>
+<button id="deleteById">Delete by Id</button>
+<br>
+<br>
+<label>delete all messages</label>
+<br>
+<button id="delete">Delete all messages</button>
