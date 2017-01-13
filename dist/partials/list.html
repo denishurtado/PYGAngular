@@ -1,5 +1,5 @@
 
-<app-header></app-header>
+<app-header class="header"></app-header>
 	
 <section class="talentPage">
 
@@ -29,17 +29,22 @@
 	</div>
 	<div>
 		<ul>
-			<li ng-repeat="item in talents | filter: talentfilter | orderBy:talentOrder:direction">
-				<a href="#/details/{{talents.indexOf(item)}}">go to details</a>
-				<img ng-src="images/{{item.photo}}_th.jpg" alt="Photo of {{item.name}}">
-				<div>
+			<li class="talent" ng-repeat="item in talents | filter: talentfilter | orderBy:talentOrder:direction">
+				<div class="talentImage">
+					<img ng-src="images/{{item.photo}}_th.jpg" alt="Photo of {{item.name}}">
+				</div>
+				<div class="talentInfo">
 					<h1>{{item.name | uppercase}}</h1>
 					<div>{{item.title}}</div>
 					<div><a href="#/teamDetails/{{talents.indexOf(item)}}">{{item.team}}</a></div>
 					<div>{{item.facebook}}</div>
 					<div>{{item.linkedin}}</div>
 					<div>{{item.twitter}}</div>
+					<div>
+						<a href="#/details/{{talents.indexOf(item)}}">go to details</a>
+					</div>
 				</div>
+				
 			</li>
 		</ul>
 	</div>

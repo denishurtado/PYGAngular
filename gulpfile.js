@@ -18,8 +18,7 @@ var config = {
 	paths:{
 		html:'./src/**/*.html',
 		js:'./src/scripts/**/*.js',
-		css:'./src/**/*.css',
-		sass:'./src/**/*.scss',
+		sass:'./src/sass/main.scss',
 		dist: './dist',
 		lib:'./src/lib/*.min.js',
 		mainJs:'./src/scripts/main.js',
@@ -90,7 +89,6 @@ gulp.task('lint', function(){
 gulp.task('watch', function(){
 	gulp.watch(config.paths.html, ['html']);
 	gulp.watch(config.paths.js, ['js','lint']);
-	gulp.watch(config.paths.css, ['css']);
 	gulp.watch(config.paths.sass, ['sass']);
 });
 

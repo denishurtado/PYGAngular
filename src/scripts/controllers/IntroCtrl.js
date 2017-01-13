@@ -15,15 +15,9 @@ var IntroCtrl = function($scope){
 	var tl = new TimelineMax();
 	tl.to(logo, 0.5, {opacity: 1})
 	.to(line, 1, {width: "100%"})
-	.to(mountain, 1, {top: -150, opacity: 1}, '-=1')
+	.to(mountain, 1, {top: -100, opacity: 1}, '-=1')
 	.to(footer, 1, {height: 55}, '-=1');
 	
-	
-	function hideIntro(){
-		document.getElementById('intro').style.display = "none";
-		console.log("click intro");
-	}
-	x.addEventListener('click', hideIntro);
 };
 
 module.exports = IntroCtrl;

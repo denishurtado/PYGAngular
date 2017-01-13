@@ -40698,7 +40698,8 @@ var FormCtrl = function($scope, $http){
 	function getMessage(){
 
 		$http.get('http://localhost:5000/api/message').then(function(result){
-			$scope.messages = result.data;	 
+			$scope.messages = result.data;
+			console.log($scope.messages);	 
 		});
 	}
 	getMessage();
@@ -40706,7 +40707,7 @@ var FormCtrl = function($scope, $http){
 	//get by id
 	function getMessageById(){
 
-		$http.get('http://localhost:5000/api/message/'+$scope.messageById).then(function(result){
+		$http.get('http://localhost:5000/api/message/' + $scope.messageById).then(function(result){
 			$scope.result = result.data;
 			console.log(result.data);
 		});
@@ -40715,8 +40716,11 @@ var FormCtrl = function($scope, $http){
 
 	//post
 	function postMessage(){
-		$http.post('http://localhost:5000/api/message', {msg: $scope.message});
+		$http.post('http://localhost:5000/api/message', {msg: $scope.message}).then(function(){
+			getMessage();
+		});
 		console.log("post");
+		
 		
 	}
 	document.getElementById("post").addEventListener("click", postMessage);
@@ -40724,6 +40728,7 @@ var FormCtrl = function($scope, $http){
 	//delete all messages
 	function deleteMessages(){
 		$http.delete('http://localhost:5000/api/message/').then(function(result){
+			getMessage();
 			console.log("delete messages", result.data);
 		});
 		
@@ -40733,7 +40738,8 @@ var FormCtrl = function($scope, $http){
 
 	//delete by Id
 	function deleteMessageById(){
-		$http.delete('http://localhost:5000/api/message/'+$scope.messageId).then(function(result){
+		$http.delete('http://localhost:5000/api/message/' + $scope.messageId).then(function(result){
+			getMessage();
 			console.log("delete messages", result.data);
 		});
 		
@@ -40741,6 +40747,16 @@ var FormCtrl = function($scope, $http){
 
 	document.getElementById("deleteById").addEventListener("click", deleteMessageById);
 	
+	//Update
+	function updateMessageById(){
+		$http.put('http://localhost:5000/api/message/' + $scope.msgId, {msg: $scope.msgUpdate}).then(function(result){
+			getMessage();
+			console.log("update messages", result.data);
+		});
+		
+	}
+
+	document.getElementById("update").addEventListener("click", updateMessageById);
 };
 
 module.exports = FormCtrl;
@@ -40764,15 +40780,9 @@ var IntroCtrl = function($scope){
 	var tl = new TimelineMax();
 	tl.to(logo, 0.5, {opacity: 1})
 	.to(line, 1, {width: "100%"})
-	.to(mountain, 1, {top: -150, opacity: 1}, '-=1')
+	.to(mountain, 1, {top: -100, opacity: 1}, '-=1')
 	.to(footer, 1, {height: 55}, '-=1');
 	
-	
-	function hideIntro(){
-		document.getElementById('intro').style.display = "none";
-		console.log("click intro");
-	}
-	x.addEventListener('click', hideIntro);
 };
 
 module.exports = IntroCtrl;
@@ -40937,7 +40947,7 @@ var myApp = angular.module('myApp', [
 //configure partials
 myApp.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
-	when('/list', {
+	when('/talent', {
 		templateUrl: 'partials/list.html',
 		controller: 'TalentListCtrl'
 	}).

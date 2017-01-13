@@ -1,3 +1,4 @@
+/** BASE **/
 /******************************** RESET *********************************/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -43,7 +44,43 @@ table {
   border-spacing: 0; }
 
 /******************************** END RESET *********************************/
-/******* Intro *****/
+/** LAYOUT **/
+.header {
+  background: transparent url("../images/header-bg.png") repeat-x scroll 0 -3px;
+  width: 100%;
+  float: left; }
+  .header .logotype {
+    float: left; }
+  .header ul {
+    float: left;
+    height: 68px;
+    line-height: 68px;
+    width: 320px;
+    text-align: center;
+    color: white;
+    font-family: "Lucida Grande", sans-serif; }
+    .header ul li {
+      display: inline;
+      border-right: 1px solid #fff;
+      padding-right: 10px;
+      floate: left; }
+      .header ul li a {
+        text-decoration: none;
+        color: #fff; }
+    .header ul li a:hover {
+      color: #066078; }
+
+.footer {
+  background: #8dc145 none repeat scroll 0 0;
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-family: "Lucida Grande", sans-serif; }
+
+/** PAGES **/
 #intro {
   position: absolute;
   width: 100%;
@@ -60,9 +97,8 @@ table {
       width: 23%;
       opacity: 0; }
     #intro .header #right-bloq {
-      float: left;
-      height: 119px;
-      width: 77%; }
+      background: white none repeat scroll 0 0;
+      height: 119px; }
       #intro .header #right-bloq .line {
         background-color: #fba72c;
         height: 6px;
@@ -89,7 +125,7 @@ table {
       #intro .content .mountain img {
         float: right;
         position: relative;
-        top: 230px;
+        top: 200px;
         opacity: 0; }
     #intro .content .btn_intro {
       height: 45px;
@@ -116,16 +152,36 @@ table {
     top: -182px;
     left: 1126px; }
 
-body {
-  border-color: #3bbfce;
-  color: #2b9eab; }
+/** COMPONENTS **/
+.talent {
+  background: gray none repeat scroll 0 0;
+  float: left;
+  height: 200px;
+  margin: 10px;
+  width: 300px; }
 
-.header {
-  width: 100%;
-  height: 50px;
-  background-color: blue; }
+.search {
+  padding: 10px;
+  font-family: "Lucida Grande", sans-serif; }
+  .search h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 14px 0; }
 
-.footer {
-  width: 0;
-  height: 50px;
-  background-color: red; }
+.talentImage {
+  background: #323435 none repeat scroll 0 0;
+  height: 78px;
+  width: 100%; }
+  .talentImage img {
+    float: right; }
+
+.talentInfo {
+  float: left;
+  padding: 30px;
+  box-sizing: padding-box; }
+
+.talentInfo {
+  height: 122px;
+  width: 100%; }
+  .talentInfo h1 {
+    font-weight: bolder; }

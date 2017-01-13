@@ -1,0 +1,43 @@
+.talent {
+    background: gray none repeat scroll 0 0;
+    float: left;
+    height: 200px;
+    margin: 10px;
+    width: 300px;
+}
+
+.search {
+    padding: 10px;
+    font-family: $font-main;
+
+    h1 {
+	    font-size: 18px;
+	    font-weight: bold;
+	    margin: 14px 0;
+	}
+}
+
+.talentImage {
+    background: #323435 none repeat scroll 0 0;
+    height: 78px;
+    width: 100%;
+
+    img{
+    	float:right;
+    }
+}
+
+.talentInfo {
+    float: left;
+    padding: 30px;
+    box-sizing: padding-box;
+}
+
+.talentInfo {
+    height: 122px;
+    width: 100%;
+
+    h1 {
+        font-weight: bolder;
+    }
+}

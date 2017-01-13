@@ -1,5 +1,5 @@
 <section class="talentInfo">
-	<div class="talent" ng-model="talents">
+	<div ng-model="talents">
 		<a href="#/details/{{prevItem}}">&lt;</a>
 		<a href="#/details/{{nextItem}}">&gt;</a>
 		<h1>{{talents[whichItem].name}}</h1>
@@ -11,5 +11,5 @@
 		<img ng-src="images/{{talents[whichItem].photo}}_th.jpg" alt="Photo of {{talents[whichItem].name}}">
 	</div>
 	
-	<a href="/#list">&laquo; Back to search:</a>
+	<a href="/#talent">&laquo; Back to search:</a>
 </section>

@@ -32,7 +32,7 @@ var myApp = angular.module('myApp', [
 //configure partials
 myApp.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
-	when('/list', {
+	when('/talent', {
 		templateUrl: 'partials/list.html',
 		controller: 'TalentListCtrl'
 	}).

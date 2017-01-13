@@ -12,6 +12,7 @@
 	</li>
 </ul>
 <br>
+<hr>
 <label>message by id</label>
 
 <input type="text" id="txt_messageById" ng-model="messageById"></input>
@@ -20,7 +21,7 @@
 	<br>mensaje by id:
 	{{itemById.msg}}
 </div>
-
+<hr>
 <br>
 <br>
 <div>Delete a message by Id</div>
@@ -28,6 +29,22 @@
 <button id="deleteById">Delete by Id</button>
 <br>
 <br>
+<br>
+<hr>
 <label>delete all messages</label>
 <br>
 <button id="delete">Delete all messages</button>
+<hr>
+<div>Update a message </div>
+<div>enter a message Id</div>
+<input type="text" id="txt_msgId" ng-model="msgId"></input>
+<br>
+
+<div>Update message </div>
+<input type="text" id="txt_msg" ng-model="msgUpdate"></input>
+<button id="update">Update</button>
+<hr>
+
+
+
+
